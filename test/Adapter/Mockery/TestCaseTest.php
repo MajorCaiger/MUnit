@@ -26,6 +26,11 @@ class TestCaseTest extends TestCase
                 $this->mockObject->shouldReceive('doSomething')->once();
             });
 
+            $this->afterEach(function() {
+                unset($this->sample);
+                unset($this->mockObject);
+            });
+
             $this->describe('when given a positive mock object', function() {
                 $this->beforeEach(function() {
                     $this->mockObject->shouldReceive('checkSomething')->once()
@@ -50,5 +55,23 @@ class TestCaseTest extends TestCase
                 });
             });
         });
+    }
+
+    public function testFailuresThrowExceptions()
+    {
+        try {
+
+            $this->describe('Failure test', function() {
+                $this->it('should throw exception', function() {
+                    $this->assertTrue(false);
+                });
+            });
+
+        } catch (\PHPUnit_Framework_Exception $e) {
+            $this->assertEquals(
+                'Failure test should throw exception: Failed asserting that false is true.',
+                $e->getMessage()
+            );
+        }
     }
 }
