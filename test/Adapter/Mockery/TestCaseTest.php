@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * Mockery Test Case Adapter Test
+ *
+ * @author Rob Caiger <rob@clocal.co.uk>
+ */
+namespace MUnit\Test\Adapter\Mockery;
+
+use Mockery as m;
+use MUnit\Adapter\Mockery\TestCase;
+
+/**
+ * Mockery Test Case Adapter Test
+ *
+ * @author Rob Caiger <rob@clocal.co.uk>
+ */
+class TestCaseTest extends TestCase
+{
+    public function testSomeMethod()
+    {
+        $this->describe('someMethod', function() {
+            $this->beforeEach(function() {
+                $this->sample = new \MUnit\Test\Resource\Sample();
+                $this->mockObject = m::mock();
+                $this->mockObject->shouldReceive('doSomething')->once();
+            });
+
+            $this->describe('when given a positive mock object', function() {
+                $this->beforeEach(function() {
+                    $this->mockObject->shouldReceive('checkSomething')->once()
+                        ->andReturn(true);
+                    $this->mockObject->shouldReceive('doSomethingPositive');
+                });
+
+                $this->it('will doSomethingPositive with the mock object', function() {
+                    $this->sample->sampleMethod($this->mockObject);
+                });
+            });
+
+            $this->describe('when given a negative mock object', function() {
+                $this->beforeEach(function() {
+                    $this->mockObject->shouldReceive('checkSomething')->once()
+                        ->andReturn(false);
+                    $this->mockObject->shouldReceive('doSomethingNegative');
+                });
+
+                $this->it('will doSomethingNegative with the mock object', function() {
+                    $this->sample->sampleMethod($this->mockObject);
+                });
+            });
+        });
+    }
+}

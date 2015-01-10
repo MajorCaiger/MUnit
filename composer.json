@@ -1,0 +1,19 @@
+{
+    "name": "Major/MUnit",
+    "description": "MUnit testing framework",
+    "require": {
+        "php": ">=5.3.3",
+        "phpunit/phpunit": "4.*",
+        "mockery/mockery": "~0.9.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "test/"
+        ]
+    }
+}
