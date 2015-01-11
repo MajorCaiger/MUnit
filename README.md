@@ -137,3 +137,6 @@ MUnit is a small library that wraps PHPUnit. The library allows you to write "Ja
 
 #### Known issues
 - At the moment you need to declare the <strong>beforeEach</strong> and <strong>afterEach</strong> callbacks before any further nested calls to <strong>describe</strong>
+
+#### Support
+- PHP 5.4+

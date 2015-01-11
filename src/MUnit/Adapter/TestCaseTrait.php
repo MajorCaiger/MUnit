@@ -1,14 +1,14 @@
 <?php
 
 /**
- * MUnit Test Case
+ * Test Case Trait
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
 namespace MUnit\Adapter;
 
 /**
- * MUnit Test Case
+ * Test Case Trait
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
@@ -193,4 +193,5 @@ trait TestCaseTrait
             }
         }
     }
+
 }

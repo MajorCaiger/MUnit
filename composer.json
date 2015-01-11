@@ -3,7 +3,7 @@
     "description": "MUnit testing framework",
     "require": {
         "php": ">=5.3.3",
-        "phpunit/phpunit": "4.*",
+        "phpunit/phpunit": "~4.0",
         "mockery/mockery": "~0.9.0"
     },
     "autoload": {
