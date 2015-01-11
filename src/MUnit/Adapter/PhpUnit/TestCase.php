@@ -15,7 +15,7 @@ use PHPUnit_Framework_TestCase;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class TestCase extends PHPUnit_Framework_TestCase
+abstract class TestCase extends PHPUnit_Framework_TestCase
 {
     use TestCaseTrait;
 }

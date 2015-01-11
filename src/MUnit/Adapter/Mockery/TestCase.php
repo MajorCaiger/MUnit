@@ -15,7 +15,7 @@ use Mockery\Adapter\Phpunit\MockeryTestCase;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class TestCase extends MockeryTestCase
+abstract class TestCase extends MockeryTestCase
 {
     use TestCaseTrait;
 }
