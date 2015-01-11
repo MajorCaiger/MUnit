@@ -1,6 +1,6 @@
 MUnit
 =====
-MUnit is a small library that wraps PHPUnit. The library allows you to write "Jasmine" style tests for you're php applications, while still giving you the power of PHPUnit and Mockery. It contains 2 abstract test cases, 1 that extends PHPUnit_Framework_TestCase and 1 that extends MockeryTestCase.
+MUnit is a small library that wraps PHPUnit. The library allows you to write "Jasmine" style tests for your php applications, while still giving you the power of PHPUnit and Mockery. It contains 2 abstract test cases, 1 that extends PHPUnit_Framework_TestCase and 1 that extends MockeryTestCase.
 
 #### Sample class
     <?php
