@@ -2,6 +2,12 @@ MUnit
 =====
 MUnit is a small library that wraps PHPUnit. The library allows you to write "Jasmine" style tests for your php applications, while still giving you the power of PHPUnit and Mockery. It contains 2 abstract test cases, 1 that extends PHPUnit_Framework_TestCase and 1 that extends MockeryTestCase.
 
+### Installation
+#### Via composer
+    "require": {
+        "major-caiger/munit": "~0.1.0"
+    }
+
 #### Sample class
     <?php
     
