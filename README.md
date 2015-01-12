@@ -146,3 +146,6 @@ MUnit is a small library that wraps PHPUnit. The library allows you to write "Ja
 
 #### Support
 - PHP 5.4+
+
+#### To do
+- Stack failed, skipped, risky or incomplete tests and report them all
