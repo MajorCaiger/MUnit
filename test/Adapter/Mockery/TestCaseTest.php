@@ -20,14 +20,14 @@ class TestCaseTest extends TestCase
     public function testSomeMethod()
     {
         $this->describe('someMethod', function() {
-            $this->beforeEach(function() {
-                $this->sample = new \MUnit\Test\Resource\Sample();
+            $this->beforeEach(function($scope) {
+                $scope->sample = new \MUnit\Test\Resource\Sample();
                 $this->mockObject = m::mock();
                 $this->mockObject->shouldReceive('doSomething')->once();
             });
 
-            $this->afterEach(function() {
-                unset($this->sample);
+            $this->afterEach(function($scope) {
+                unset($scope->sample);
                 unset($this->mockObject);
             });
 
@@ -38,8 +38,8 @@ class TestCaseTest extends TestCase
                     $this->mockObject->shouldReceive('doSomethingPositive');
                 });
 
-                $this->it('will doSomethingPositive with the mock object', function() {
-                    $this->sample->sampleMethod($this->mockObject);
+                $this->it('will doSomethingPositive with the mock object', function($scope) {
+                    $scope->sample->sampleMethod($this->mockObject);
                 });
             });
 
@@ -50,8 +50,8 @@ class TestCaseTest extends TestCase
                     $this->mockObject->shouldReceive('doSomethingNegative');
                 });
 
-                $this->it('will doSomethingNegative with the mock object', function() {
-                    $this->sample->sampleMethod($this->mockObject);
+                $this->it('will doSomethingNegative with the mock object', function($scope) {
+                    $scope->sample->sampleMethod($this->mockObject);
                 });
             });
         });
