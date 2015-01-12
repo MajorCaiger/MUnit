@@ -42,6 +42,8 @@ trait TestCaseTrait
      */
     protected $tests = [];
 
+    protected $scope;
+
     /**
      * Describe and setup the test suite
      *
@@ -50,9 +52,13 @@ trait TestCaseTrait
      */
     protected function describe($description, $callback)
     {
+        if ($this->scope === null) {
+            $this->scope = new \stdClass();
+        }
+
         $this->setUpSuite($description);
 
-        $callback();
+        $callback($this->scope);
         $this->runStackedTests();
 
         $this->tearDownSuite();
@@ -158,7 +164,7 @@ trait TestCaseTrait
     protected function runStackedTest($description, $test)
     {
         try {
-            $test();
+            $test($this->scope);
         } catch (\PHPUnit_Framework_Exception $e) {
 
             $exeptionType = get_class($e);
@@ -177,7 +183,7 @@ trait TestCaseTrait
     {
         foreach ($this->beforeCallbacks as $callbacks) {
             foreach ($callbacks as $callback) {
-                $callback();
+                $callback($this->scope);
             }
         }
     }
@@ -189,9 +195,8 @@ trait TestCaseTrait
     {
         foreach ($this->afterCallbacks as $callbacks) {
             foreach ($callbacks as $callback) {
-                $callback();
+                $callback($this->scope);
             }
         }
     }
-
 }
