@@ -1,5 +1,5 @@
 {
-    "name": "Major/MUnit",
+    "name": "major-caiger/munit",
     "description": "MUnit testing framework",
     "require": {
         "php": ">=5.3.3",
