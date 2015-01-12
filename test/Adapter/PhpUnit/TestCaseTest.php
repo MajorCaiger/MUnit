@@ -81,7 +81,41 @@ class TestCaseTest extends TestCase
 
         } catch (\PHPUnit_Framework_Exception $e) {
             $this->assertEquals(
-                'Failure test should throw exception: Failed asserting that false is true.',
+                '(FAILED) Failure test should throw exception: Failed asserting that false is true.',
+                $e->getMessage()
+            );
+        }
+    }
+
+    public function testAllFailuresThrowExceptions()
+    {
+        try {
+
+            $this->describe('test', function() {
+               $this->describe('with failures', function() {
+                    $this->it('should throw exception', function() {
+                        $this->assertTrue(false);
+                    });
+                });
+
+                $this->describe('with skips', function() {
+                    $this->it('should throw exception', function() {
+                        $this->markTestSkipped('foo');
+                    });
+                });
+
+                $this->describe('when incomplete', function() {
+                    $this->it('should throw exception', function() {
+                        $this->markTestIncomplete('bar');
+                    });
+                });
+            });
+
+        } catch (\Exception $e) {
+            $this->assertEquals(
+                '(FAILED) test with failures should throw exception: Failed asserting that false is true.
+(INCOMPLETE) test when incomplete should throw exception: bar
+(SKIPPED) test with skips should throw exception: foo',
                 $e->getMessage()
             );
         }

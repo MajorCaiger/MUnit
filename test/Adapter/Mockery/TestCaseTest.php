@@ -69,7 +69,7 @@ class TestCaseTest extends TestCase
 
         } catch (\PHPUnit_Framework_Exception $e) {
             $this->assertEquals(
-                'Failure test should throw exception: Failed asserting that false is true.',
+                '(FAILED) Failure test should throw exception: Failed asserting that false is true.',
                 $e->getMessage()
             );
         }
