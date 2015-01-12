@@ -142,7 +142,7 @@ MUnit is a small library that wraps PHPUnit. The library allows you to write "Ja
     }
 
 #### Things to remember
-- When, declaring a setUp and/or tearDown method in the test case, these methods will only be called for each test method, rather than each "describe" or it "call".
+- When, declaring a setUp and/or tearDown method in the test case, these methods will only be called for each test method, rather than each "describe" or "it" call.
 
 #### Known issues
 - At the moment you need to declare the <strong>beforeEach</strong> and <strong>afterEach</strong> callbacks before any further nested calls to <strong>describe</strong>
