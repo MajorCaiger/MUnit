@@ -2,9 +2,8 @@ language: php
 php:
   - 5.5
   - 5.4
-  - 5.3
   - hhvm  
 before_script: composer update
-script: phpunit -c test/ --coverage-text
+script: phpunit --coverage-text
 notifications:
   email: "major.caiger@gmail.com"
